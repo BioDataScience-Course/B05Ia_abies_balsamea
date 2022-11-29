@@ -9,7 +9,7 @@ output: html_document
 
 # Introduction
 
-@wood_2015 ont étudié la croissance de *Abies balsamea*. Ils réalisent différents modèles linéaires et non linéaires et mettent en évidence que le modèle de Gompertz est le plus approrié.
+@wood_2015 ont étudié la croissance de *Abies balsamea*. Ils réalisent différents modèles linéaires et non linéaires et mettent en évidence que le modèle de Gompertz est le plus approprié.
 
 # Analyses
 
@@ -51,3 +51,5 @@ $$ ___ $$
 ```
 
 # Discussions et conclusions
+
+<!--% Tirez des conclusions de votre étude en 3 phrases maximum. -->
