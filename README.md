@@ -14,7 +14,7 @@ Les données associées à cette étude sont disponible via
 ## Objectif
 
 Ce projet est un projet individuel et cadré. Il permet de montrer que
-vous êtes capable d’utiliser la fonction nls() pour ajuster correctement
+vous êtes capable d’utiliser la fonction `nls() pour ajuster correctement
 un modèle non linéaire dans un jeu de données.
 
 ## Consignes
