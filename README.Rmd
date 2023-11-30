@@ -2,27 +2,31 @@
 title: "Croissance du sapin *Abies balsamea* (L.) Mill., 1768 au mont Moosilauke"
 output: github_document
 lang: "fr"
-bibliography: "docs/bibliography.bib"
+bibliography: "bibliography/references.bib"
 ---
 
 <!-- DO NOT EDIT .md FILE-->
 
-## Présentation des données
+## Avant-propos
 
-@wood_2015 ont étudié la croissance de *Abies balsamea*. Ils étudient la hauteur des arbres en fonction du diamètre du tronc à 1.37m, des arbres les plus proches dans un carré de 6m\*6m et de l'altitude. Les données associées à cette étude sont disponible via [DRYAD](https://datadryad.org/) [@wood_data_2016].
+Ce projet nécessite d'avoir assimilé l'ensemble des notions du cinquième modules du cours de science des données biologiques 2. Il correspond au dépôt GitHub <https://github.com/BioDataScience-Course/B05Ia_abies_balsamea>. Il est distribué sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Objectif
 
-Ce projet est un projet individuel et cadré. Il permet de montrer que vous êtes capable d'utiliser la fonction `nls()` pour ajuster correctement un modèle non linéaire dans un jeu de données.
+Ce projet est un projet **court**, **individuel** et **cadré**. Il vise à compléter votre apprentissage concernant la modélisation. Les modèles non linéaires sont ajouté à modèle linéaire dans votre pannel d'outils dédié à la modélisation. Dans ce projet vous devrez :
+
+-   Créer et analyser plusieurs modèles non linéaire avec les fonctions self start et la fonction `nls()`
+
+-   Choisir le modèle le plus pertinent
 
 ## Consignes
 
-Modélisez la hauteur de *Abies balsamea* en fonction de son diamètre. Complétez le document `abies.Rmd` présent dans le dossier `docs/`.
+Compléter les zones manquantes dans le fichier abies.qmd . Ce document traite de la Modélisation de la hauteur de *Abies balsamea* en fonction de son diamètre.
 
-Lorsque vous aurez terminé de compléter le fichier, compilez ce dernier en HTML (bouton **Knit**) et assurez-vous que la compilation s'est faites sans erreurs, sinon, apportez les corrections nécessaires. Dans votre commit - push final, assurez-vous d'avoir un fichiers `.Rmd` qui compile correctement. Cela fait partie de l'exercice. Vérifiez que votre dernier commit a bien été pushé sur GitHub avant la fin de la séance.
+Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -\> bouton "Construire tout") pour vérifier l'état de votre travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document ! Assurez-vous que votre document Quarto compile sans erreurs à la fin de votre travail **(très important : un document qui ne compile pas sans erreur devra être sanctionné de manière importante)**. Vérifiez aussi à la fin que vos derniers commits ont bien été pushés sur GitHub.
 
-Faites attention à bien citer vos sources. Le plagiat est, comme toujours, bien évidemment interdit. Si vous avez été aidé par quelqu'un (un ou une autre étudiant•e ou enseignant•e) pour l'une ou l'autre partie de votre projet, vous devez le ou la citer.
+## Informations sur les données
 
-Ce projet correspond au template <https://github.com/BioDataScience-Course/B05Ia_abies_balsemea>
+@wood_2015 ont étudié la croissance de *Abies balsamea*. Ils étudient la hauteur des arbres en fonction du diamètre du tronc à 1.37m, des arbres les plus proches dans un carré de 6m\*6m et de l'altitude. Les données associées à cette étude sont disponible via [DRYAD](https://datadryad.org/) [@wood_data_2016].
 
 ## Bibliographie

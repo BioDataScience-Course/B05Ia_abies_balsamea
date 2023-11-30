@@ -1,0 +1,143 @@
+---
+title: "Croissance du sapin *Abies balsamea* (L.) Mill., 1768 au mont Moosilauke"
+author: "___"
+date: "`r Sys.Date()`"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+editor: visual
+lang: fr
+bibliography: bibliography/references.bib
+---
+
+# Introduction et but
+
+@wood_2015 ont étudié la relation entre la hauteur et le diamètre de *Abies balsamea* (L.) Mill. 1768 Les mesures sont réalisées sur les pentes du mont Moosilauke dont le point culminant est à 1464m. Cette montagne se situe dans les montages Blanches dans l'état du New Hampshire (États-Unis).
+
+Outre le diamètre et la hauteur, cette étude intègre la hauteur de la canopée ainsi que l'altitude qui évolue de 808 m à 1180m.
+
+Plusieurs modèles sont réalisés et comparés sur base du critère d'Akaike afin de proposer le modèle le plus approprié pour représenter l'allométrie entre la hauteur et le diamètre dont le modèle linéaire, le modèle linéaire sur les données transformées (log-log), modèle exponentielle négative et le modèle de Gompertz. Selon @wood_2015, le meilleur modèle est cela de Gompertz.
+
+Notre objectif est de déterminer si le modèle de Gompertz est effectivement le modèle non linéaire le plus adapté parmi des modèles non linéaires de forme sigmoïde.
+
+# Matériel et méthodes
+
+Les données collectées par Wood et son équipe @wood_data_2016 sont disponibles sous licence [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr) depuis le site [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.r3645). Le protocole et les métadonnées sont proposés dans la publication associée aux données [@wood_2015].
+
+L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2023](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
+
+# Résultats
+
+```{r setup, include=FALSE}
+# Ceci est nécessaire pour les tests SDD, ne pas utiliser dans un "vrai" projet
+if (!"tools:tests" %in% search())
+  source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
+
+# Configure SciViews::R environment
+SciViews::R(___)
+```
+
+## Étude descriptive
+
+<!--% Importez abies.rds qui se trouve dans le dossier data/ et assignez le résultat à `abies`. éliminez également les individus ne se trouvant pas entre 950 et 1050m d'altitude. -->
+
+```{r import, record='RODFS', object='abies'}
+abies <- ___
+```
+
+<!--% Réalisez un graphique de la hauteur des arbres en fonction du diamètre mesuré à 1.37m du sol. Proposez une valeur d’alpha de 0.5. -->
+
+```{r plot1, record='RNP', args='labels'}
+
+```
+
+<!--% Proposez un graphique composé de deux histogrammes de la hauteur et du diamètre des arbres. -->
+
+```{r plot2, record='RNP', args='labels'}
+# Histogramme de la hauteur
+a <- ___
+# Histogramme du diamètre
+b <- ___
+# Graphique combiné
+combine_charts(___)
+```
+
+```{r plot2comment, output='asis'}
+select_answer(r"-{
+[] -   Les points se distribuent de manière homogène le long de l'axe des abscisses.
+[] -   Il y a plus de petites valeurs sur l'axe des abscisses.
+[] -   Il y a plus de grandes valeurs sur l'axe des abscisses.
+[] -   L'étalement des points le long de l'axe des ordonnées est constant.
+[] -   L'étalement des points le long de l'axe des ordonnées est plus grand pour les grandes valeurs.
+[] -   L'étalement des points le long de l'axe des ordonnées est plus grand pour les petites valeurs.
+[] -   Les distributions de l'hauteur et du diamètre sont unimodales et symétriques.
+[] -   Les distributions de l'hauteur et du diamètre sont bimodalse et symétriques.
+[] -   Les distributions de l'hauteur et du diamètre sont multimodales et symétriques.
+[] -   Les distributions de l'hauteur et du diamètre sont unimodales et asymétriques.
+[] -   Les distributions de l'hauteur et du diamètre est bimodales et asymétriques.
+[] -   Les distributions de l'hauteur et du diamètre multimodales et asymétriques.
+[] -  Sans transformer les données,  le nuage de points a une forme de droite.
+[] -  Sans transformer les données,  le nuage de points a une forme de courbe exponentielle.
+[] -  Sans transformer les données, le nuage de points a une forme de sigmoide.
+}-")
+```
+
+## Modélisation
+
+<!--% Réalisez un modèle de logistique généralisé à 4 paramètres sur les variables étudiées. Proposez son résumé. Utilisez tabularise() pour formater le résumé du modèle.-->
+
+```{r fpl, record='ROP', object='fpl', arg='call'}
+fpl <- ___
+```
+
+<!--% Réalisez un modèle de Gompertz sur les variables étudiées. Proposez son résumé. Utilisez tabularise() pour formater le résumé du modèle. -->
+
+```{r gompertz, record='ROP', object='gomp', arg='call'}
+gomp <- ___
+```
+
+<!--% Réalisez un modèle de Weibull sur les variables étudiées. Proposez son résumé. Utilisez tabularise() pour formater le résumé du modèle. -->
+
+```{r weibull, record='ROP', object='weib', arg='call'}
+weib <- ___
+```
+
+<!--% Proposez un graphique de la hauteur en fonction du diamètre. Ajoutez les trois modèles non linéaires sur le même graphique. Différenciez les modèles en utilisant la couleur dont le label doit être 'Modèles non linéaires'. -->
+
+```{r chartnls, record='RNP', args='labels'}
+
+```
+
+<!--- Comparez l'ensemble des modèles réalisé à l'aide du critère d'Akaike. -->
+
+```{r aic, record='RNDFS'}
+
+```
+
+```{r aiccomment, output='asis'}
+select_answer(r"-{
+[] -   Le modèle logistique s’adapte le mieux sur le graphique.
+[] -   Le modèle de Gompertz s’adapte le mieux sur le graphique.
+[] -   Le modèle de Weibull s’adapte le mieux sur le graphique.
+[] -   Graphiquement, les trois modèles sont très proches.
+[] -   Le modèle logistique à 4 paramètres est le meilleur modèle selon le critère d’Akaike.
+[] -   Le modèle Gompertz est le meilleur modèle selon le critère d’Akaike.
+[] -   Le modèle logistique est le meilleur modèle selon le critère d’Akaike.
+}-")
+```
+
+<!--% Paramétrisez le modèle retenu (certains arguments sont déjà préremplis pour bien présenter l'équation). -->
+
+$$
+`r eq__(___, use_coefs = TRUE)`
+$$
+
+# Discussion & conclusion
+
+<!--% Rédigez une discussion et des conclusions en 3 à 5 phrases concernant l'utilisation des modèles non linéaires et la comparaison de vos résultats avec ceux de l'étude (table 2). -->
+
+...Votre discussion à la place de ce texte...
+
+# Références
