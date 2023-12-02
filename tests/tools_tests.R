@@ -1,7 +1,7 @@
 # Functions to test projects
 # Copyright (c) 2023, Philippe Grosjean (phgrosjean@sciviews.org) &
 #   Guyliann Engels (Guyliann.Engels@umons.ac.be)
-# Version 1.3.0
+# Version 1.4.0
 
 
 # Transformation functions ------------------------------------------------
@@ -575,6 +575,35 @@ sddReporter$public_methods$start_file <- function(name) {
   self$cat_line(cli::col_cyan(name))
 }
 
+# Limit the number of uses of the test
+test_dir <- function(path, reporter = sddReporter, times = 10L, ...) {
+  if (length(times) != 1 || !is.numeric(times) || times < 1L)
+    stop("times must be a positive integer")
+  if (fs::file_exists(".cnt")) {
+    cnt <- try(readLines(".cnt") |> as.integer(), silent = TRUE)
+    if (inherits(cnt, "try-error"))
+      cnt <- times
+  } else {
+    cnt <- times
+  }
+  if (cnt < 1L) {
+    cat("Désolé, vous avez épuisé vos ", times, " essais pour les tests !\n",
+      sep = "")
+    return(invisible())
+  }
+  # Decrement cnt, save and indicate how much is left
+  cnt <- cnt - 1L
+  writeLines(as.character(cnt), ".cnt")
+  if (cnt == 0L) {
+    cat("Attention : ceci est votre dernier essai pour les tests !\n",
+      sep = "")
+  } else {
+    cat("Il vous reste ", cnt, " essais pour les tests après celui-ci.\n",
+      sep = "")
+  }
+  # Run the tests
+  testthat::test_dir(path, reporter = reporter, ...)
+}
 
 # Functions for Quarto and R Markdown documents ---------------------------
 

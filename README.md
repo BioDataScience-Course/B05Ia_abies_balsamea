@@ -1,4 +1,4 @@
-Croissance du sapin *Abies balsamea* (L.) Mill., 1768 au mont Moosilauke
+Croissance du sapin *Abies balsamea* (L.) Mill., 1768
 ================
 
 <!-- DO NOT EDIT .md FILE-->
@@ -14,10 +14,9 @@ distribué sous licence [CC BY-NC-SA
 
 ## Objectif
 
-Ce projet est un projet **court**, **individuel** et **cadré**. Il vise
-à compléter votre apprentissage concernant la modélisation. Les modèles
-non linéaires sont ajouté à modèle linéaire dans votre pannel d’outils
-dédié à la modélisation. Dans ce projet vous devrez :
+Ce projet est **court**, **individuel** et **cadré**. Il vise à
+compléter votre apprentissage concernant la modélisation. Dans ce projet
+vous devrez :
 
 - Créer et analyser plusieurs modèles non linéaire avec les fonctions
   self start et la fonction `nls()`
@@ -26,9 +25,9 @@ dédié à la modélisation. Dans ce projet vous devrez :
 
 ## Consignes
 
-Compléter les zones manquantes dans le fichier abies.qmd . Ce document
-traite de la Modélisation de la hauteur de *Abies balsamea* en fonction
-de son diamètre.
+Compléter les zones manquantes dans le fichier `abies_notebook.qmd` dans
+le but de prédire la hauteur de *Abies balsamea* en fonction de son
+diamètre.
 
 Compilez la version finale au format HTML. Vous avez une batterie de
 tests à votre disposition (onglet “Construire” -\> bouton “Construire
@@ -36,19 +35,24 @@ tout”) pour vérifier l’état de votre travail. Note : utilisez ces tests
 à la fin. Concentrez-vous d’abord sur vos analyses, puis faites un rendu
 final du document lorsque tout est complété, et seulement après,
 utilisez les tests. Il est contre-productif d’activer les tests à chaque
-nouvelle ligne de code ajoutée dans votre document ! Assurez-vous que
-votre document Quarto compile sans erreurs à la fin de votre travail
-**(très important : un document qui ne compile pas sans erreur devra
-être sanctionné de manière importante)**. Vérifiez aussi à la fin que
-vos derniers commits ont bien été pushés sur GitHub.
+nouvelle ligne de code ajoutée dans votre document ! **Afin d’éviter
+tout abus d’utilisation des tests, vous ne pouvez les utiliser que dix
+fois dans ce projet.**
+
+Assurez-vous que votre document Quarto compile sans erreurs à la fin de
+votre travail **(très important : un document qui ne compile pas sans
+erreur devra être sanctionné de manière importante)**. Vérifiez aussi à
+la fin que vos derniers commits ont bien été pushés sur GitHub.
 
 ## Informations sur les données
 
-Wood et al. (2015) ont étudié la croissance de *Abies balsamea*. Ils
-étudient la hauteur des arbres en fonction du diamètre du tronc à 1.37m,
-des arbres les plus proches dans un carré de 6m\*6m et de l’altitude.
-Les données associées à cette étude sont disponible via
-[DRYAD](https://datadryad.org/) (Wood et al. 2016).
+Wood et al. (2015) ont étudié la croissance de *Abies balsamea*. Ils ont
+mesuré la hauteur de ces arbres en fonction du diamètre de leur tronc à
+1.37m du sol. D’autres informations comme la hauteur du plus grand arbre
+proche dans un carré de 6m\*6m et l’altitude ont aussi été consignées,
+mais nous n’utiliserons pas ces informations complémentaires ici. Les
+données sont disponible via [DRYAD](https://doi.org/10.5061/dryad.r3645)
+(Wood et al. 2016).
 
 ## Bibliographie
 

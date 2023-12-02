@@ -15,4 +15,6 @@ LaTeX: XeLaTeX
 AutoAppendNewline: Yes
 
 BuildType: Makefile
-MakefilePath: tests/
+MakefilePath: tests
+
+SpellingDictionary: fr_FR

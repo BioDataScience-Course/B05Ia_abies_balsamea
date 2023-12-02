@@ -33,7 +33,8 @@ test_that("La structure du document est-elle conservée ?", {
   # README.md).
 
   expect_true(all(c("setup", "import", "plot1", "plot2", "plot2comment",
-    "fpl", "gompertz", "weibull", "chartnls", "aic", "aiccomment")
+    "plot3", "plot3comment", "plot4", "plot4comment", "logheight", "vb",
+    "gompertz", "weibull", "chartnls", "aic", "aiccomment")
     %in% rmd_node_label(abies)))
   # Un ou plusieurs labels de chunks nécessaires à l'évaluation manquent
   # Ce test échoue si vous avez modifié la structure du document, un ou
@@ -87,15 +88,16 @@ test_that("Chunks 'import' : importation et filtre des données", {
   # appliquer le filtre souhaité sur l'altitude au quel les arbres sont mesurés.
 })
 
-test_that("Chunks 'plot1', 'plot2', 'plot2comment', : description graphiques des données", {
+test_that("Chunks 'plot1', 'plot2', 'plot2comment' : description graphiques des données", {
   expect_true(is_identical_to_ref("plot1"))
-  # Le nuage de points produit par le chunk 'plot1' n'est pas celui
-  # attendu. Lisez bien la consigne et corrigez l'erreur
-
+  # Le graphique combiné de deux histogrammes par le chunk 'plot1' n'est pas 
+  # celui attendu. Avez-vous utilisé un label en français pour l'axe Y des 
+  # deux graphiques ?
+  
   expect_true(is_identical_to_ref("plot2"))
-  # Le graphique combiné de deux histogrammes par le chunk 'plot2' n'est pas 
-  # celui attendu. Avez-vous proposé un label en français pour l'axe y des 
-  # deux graphiques.
+  # Le nuage de points produit par le chunk 'plot2' n'est pas celui attendu.
+  # Lisez bien la consigne et corrigez l'erreur. La transparence des points est
+  # réalisée en utilisant alpha = 0.5.
 
   expect_true(is_identical_to_ref("plot2comment"))
   # L'interprétation de la description graphique des données est (partiellement) 
@@ -108,37 +110,75 @@ test_that("Chunks 'plot1', 'plot2', 'plot2comment', : description graphiques des
   # cette aide plus tard dans le travail de groupe ou les interrogations !
 })
 
-test_that("Chunks 'fpl', 'gompertz', 'weibull' & 'chartnls' : plusieurs modèles non-linéaires", {
-  expect_true(is_identical_to_ref("fpl"))
-  # Le modèle logistique généralisé à 4 paramètres n'est pas celui attendu. 
-  # Lisez bien la consigne et corrigez l'erreur. Les paramètres par défaut sont 
-  # suffisants pour que le modèle converge.
+test_that("Chunks 'plot3', 'plot3comment' : transformation double-log", {
+  expect_true(is_identical_to_ref("plot3"))
+  # Le nuage de points produit par le chunk 'plot3' n'est pas celui attendu.
+  # Lisez bien la consigne et corrigez l'erreur. Vous devez transformer à la
+  # fois le diamètre et la hauteur avec la fonction log().
+  
+  expect_true(is_identical_to_ref("plot3comment"))
+  # L'interprétation de la description graphique des données est (partiellement) 
+  # fausse dans le chunk 'plot3comment'
+  # Vous devez cochez les phrases qui décrivent les graphiques et la table d'un
+  # 'x' entre les crochets [] -> [x]. Ensuite, vous devez recompiler la version
+  # HTML du bloc-notes (bouton 'Rendu') sans erreur pour réactualiser les
+  # résultats.
+  # Assurez-vous de bien comprendre ce qui est coché ou pas : vous n'aurez plus
+  # cette aide plus tard dans le travail de groupe ou les interrogations !
+})
+
+test_that("Chunks 'plot4', 'plot4comment' : transformation log pour la hauteur seulement", {
+  expect_true(is_identical_to_ref("plot4"))
+  # Le nuage de points produit par le chunk 'plot4' n'est pas celui attendu.
+  # Lisez bien la consigne et corrigez l'erreur. Vous devez seulement
+  # transformer la hauteur en log() dans ce graphique et laisser le diamètre tel
+  # quel.
+  
+  expect_true(is_identical_to_ref("plot4comment"))
+  # L'interprétation de la description graphique des données est (partiellement) 
+  # fausse dans le chunk 'plot3comment'
+  # Vous devez cochez les phrases qui décrivent les graphiques et la table d'un
+  # 'x' entre les crochets [] -> [x]. Ensuite, vous devez recompiler la version
+  # HTML du bloc-notes (bouton 'Rendu') sans erreur pour réactualiser les
+  # résultats.
+  # Assurez-vous de bien comprendre ce qui est coché ou pas : vous n'aurez plus
+  # cette aide plus tard dans le travail de groupe ou les interrogations !
+})
+
+test_that("Chunks 'vb', 'gompertz', 'weibull' & 'chartnls' : modèles non-linéaires", {
+  expect_true(is_identical_to_ref("vb"))
+  # Le modèle de von Bertalanffy n'est pas celui attendu. 
+  # Lisez bien la consigne et corrigez l'erreur. Le modèle à utiliser ici est
+  # asymptotique et est le plus général des trois ( à 3 paramètres). Vérifiez
+  # que vous travaillez bien avec logheight et diameter.
   
   expect_true(is_identical_to_ref("gompertz"))
   # Le modèle de Gompertz  n'est pas celui attendu. 
-  # Lisez bien la consigne et corrigez l'erreur. Les paramètres par défaut sont 
-  # suffisants pour que le modèle converge.
+  # Lisez bien la consigne et corrigez l'erreur. Vérifiez que vous modéliser
+  # bien logheight en fonction de diameter.
   
   expect_true(is_identical_to_ref("weibull"))
   # Le modèle de Weibull  n'est pas celui attendu. 
-  # Lisez bien la consigne et corrigez l'erreur. Les paramètres par défaut sont 
-  # suffisants pour que le modèle converge.
+  # Lisez bien la consigne et corrigez l'erreur. Utilisez-vous le modèle de
+  # Weibull self-start pour prédire logheight en fonction de diameter ?
   
   expect_true(is_identical_to_ref("chartnls"))
   # Le nuage de points produit par le chunk 'chartnls' n'est pas celui
-  # attendu. Lisez bien la consigne et corrigez l'erreur. Assurez vous d'avoir 
+  # attendu.
+  # Lisez bien la consigne et corrigez l'erreur. Assurez vous d'avoir 
   # des labels en français. Les trois modèles doivent être présents sur le 
-  # graphique.
+  # même graphique. Le label pour la couleur doit être 'Modèles non linéaires'.
 })
 
 test_that("Chunks 'aic', 'aiccomment', Comparaison des modèles", {
   expect_true(is_identical_to_ref("aic", "names"))
-  # Les colonnes dans le tableau `aic` ne sont pas celles attendues. Vous devez
-  # obtenir un seul tableau combinant les valeurs d'Akaike des trois modèles.
+  # Les colonnes dans le tableau `aic` ne sont pas celles attendues.
+  # Vous devez obtenir un seul tableau comtenant les valeurs d'Akaike des trois
+  # modèles.
 
   expect_true(is_identical_to_ref("import", "nrow"))
   # Le nombre de lignes dans le tableau du critère d'Akaike est incorrect
-  # Ce tableau doit comprendre 3 lignes
+  # Ce tableau doit contenir trois lignes, une pour chaque modèle.
 
   expect_true(is_identical_to_ref("aiccomment"))
   # La comparaison des trois modèles est (partiellement) fausse
@@ -149,15 +189,14 @@ test_that("Chunks 'aic', 'aiccomment', Comparaison des modèles", {
   # cette aide plus tard dans le travail de groupe ou les interrogations !
 })
 
-# test_that("Le code pour l'équation paramétrée du modèle du meilleur modèle est-il correct ?", {
-#   expect_true(rmd_select(abies, by_section(
-#     "Modélisation")) |>
-#       as_document() |> is_display_param_equation("gompertz"))
-#   # Le code pour générer l'équation paramétrée du modèle de Gompertz est 
-#   # incorrect. Vous avez appris à faire cela dans plusieurs projets dont le 
-#   # projet B04Ia_23M_lungcap. Vérifiez comment l'équation se présente dans le 
-#   # document final généré avec le bouton ('Rendu').
-# })
+test_that("Le code pour l'équation paramétrée du modèle du meilleur modèle est-il correct ?", {
+  expect_true(rmd_select(abies, by_section("Modélisation")) |>
+      as_document() |> is_display_param_equation("vb"))
+  # Le code pour générer l'équation paramétrée du meilleur modèle est incorrect. 
+  # Vous avez appris à faire cela dans plusieurs projets dont le projet
+  # B04Ia_23M_lungcap. Vérifiez comment l'équation se présente dans le 
+  # document final généré avec le bouton ('Rendu').
+})
 
 test_that("La partie discussion et conclusion est-elle remplie ?", {
   expect_true(!(rmd_select(abies, by_section("Discussion & conclusion")) |>

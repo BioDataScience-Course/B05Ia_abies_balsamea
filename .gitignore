@@ -51,10 +51,14 @@ tests/results/
 
 # Key
 tests/.key
+tests/.cnt
 
 # Knitr cache
 *_cache/
 /cache/
+
+# Cache des données
+data/data_cache/
 
 # Package build files
 *-Ex.R

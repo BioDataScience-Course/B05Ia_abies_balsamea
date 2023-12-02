@@ -1,14 +1,12 @@
 # Importation des données
 # Date : 2022-11-29
 
-# Importation des packages
+# Configuration de l'environnement
 SciViews::R()
 
-# Données importées depuis ZENODO 
+# Les données sont importées depuis ZENODO
 url <- "https://zenodo.org/record/4943286/files/Abies_bals_allom_data_Peart.csv?download=1"
-
-# Importation des données
-abies <- read$csv(url, cache_file = "data/data_raw/abies.csv")
+abies <- read$csv(url, cache_file = "data/data_cache/abies.csv")
 
 # Renommer les variables
 abies <- janitor::clean_names(abies)
@@ -31,4 +29,5 @@ abies <- labelise(abies,
 # Sauvegarde des données localement
 write$rds(abies, "data/abies.rds", compress = "xz")
 
+# Nettoyage de l'environnmeent
 rm(abies, url)
