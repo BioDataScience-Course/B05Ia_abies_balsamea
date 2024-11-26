@@ -7,15 +7,13 @@ bibliography: "bibliography/references.bib"
 
 <!-- DO NOT EDIT .md FILE-->
 
-## Avant-propos
-
 Ce projet nécessite d'avoir assimilé l'ensemble des notions du cinquième modules du cours de science des données biologiques 2. Il correspond au dépôt GitHub <https://github.com/BioDataScience-Course/B05Ia_abies_balsamea>. Il est distribué sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Objectifs
 
 Ce projet est individuel et cadré. Il vise à compléter votre apprentissage concernant la modélisation. Dans ce projet vous devrez :
 
--   Créer et analyser plusieurs modèles non linéaire avec les fonctions self start et la fonction `nls()`
+-   Créer et analyser plusieurs modèles non linéaire avec les objets **selfStart** et la fonction `nls()`
 
 -   Choisir le modèle le plus pertinent
 
@@ -23,7 +21,7 @@ Ce projet est individuel et cadré. Il vise à compléter votre apprentissage co
 
 Compléter les zones manquantes dans le fichier `abies_notebook.qmd` dans le but de prédire la hauteur de *Abies balsamea* en fonction de son diamètre.
 
-Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -\> bouton "Construire tout") pour vérifier l'état de votre travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document ! **Afin d'éviter tout abus d'utilisation des tests, vous ne pouvez les utiliser que dix fois dans ce projet.**
+Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -\> bouton "Construire tout") pour vérifier l'état de votre travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document ! **Afin d'éviter tout abus d'utilisation des tests, vous ne pouvez les utiliser que dix fois dans ce projet.**
 
 Assurez-vous que votre document Quarto compile sans erreurs à la fin de votre travail **(très important : un document qui ne compile pas sans erreur devra être sanctionné de manière importante)**. Vérifiez aussi à la fin que vos derniers commits ont bien été pushés sur GitHub.
 

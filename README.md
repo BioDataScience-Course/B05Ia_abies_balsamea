@@ -3,8 +3,6 @@ Croissance du sapin *Abies balsamea* (L.) Mill., 1768
 
 <!-- DO NOT EDIT .md FILE-->
 
-## Avant-propos
-
 Ce projet nécessite d’avoir assimilé l’ensemble des notions du cinquième
 modules du cours de science des données biologiques 2. Il correspond au
 dépôt GitHub
@@ -17,8 +15,8 @@ distribué sous licence [CC BY-NC-SA
 Ce projet est individuel et cadré. Il vise à compléter votre
 apprentissage concernant la modélisation. Dans ce projet vous devrez :
 
-- Créer et analyser plusieurs modèles non linéaire avec les fonctions
-  self start et la fonction `nls()`
+- Créer et analyser plusieurs modèles non linéaire avec les objets
+  **selfStart** et la fonction `nls()`
 
 - Choisir le modèle le plus pertinent
 
@@ -30,7 +28,7 @@ diamètre.
 
 Compilez la version finale au format HTML. Vous avez une batterie de
 tests à votre disposition (onglet “Construire” -\> bouton “Construire
-tout”) pour vérifier l’état de votre travail. Note : utilisez ces tests
+tout”) pour vérifier l’état de votre travail. Note : utilisez ces tests
 à la fin. Concentrez-vous d’abord sur vos analyses, puis faites un rendu
 final du document lorsque tout est complété, et seulement après,
 utilisez les tests. Il est contre-productif d’activer les tests à chaque
@@ -55,7 +53,8 @@ données sont disponible via [DRYAD](https://doi.org/10.5061/dryad.r3645)
 
 ## Bibliographie
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 
 <div id="ref-wood_2015" class="csl-entry">
 
