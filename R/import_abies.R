@@ -1,5 +1,7 @@
 # Importation des données
 # Date : 2022-11-29
+# Note : les données ont déjà été importées pour vous. Vous ne devez pas
+# réexécuter ce script ! 
 
 # Configuration de l'environnement
 SciViews::R()
@@ -26,8 +28,9 @@ abies <- labelise(abies,
     canopyheight = "m"
   ))
 
-# Sauvegarde des données localement
-write$rds(abies, "data/abies.rds", compress = "xz")
+# Sauvegarde des données localement (commenté pour éviter d'écraser les données
+# originales)
+#write$rds(abies, "data/abies.rds", compress = "xz")
 
 # Nettoyage de l'environnmeent
 rm(abies, url)
