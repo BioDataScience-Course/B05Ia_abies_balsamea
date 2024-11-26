@@ -12,11 +12,10 @@ dépôt GitHub
 distribué sous licence [CC BY-NC-SA
 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Objectif
+## Objectifs
 
-Ce projet est **court**, **individuel** et **cadré**. Il vise à
-compléter votre apprentissage concernant la modélisation. Dans ce projet
-vous devrez :
+Ce projet est individuel et cadré. Il vise à compléter votre
+apprentissage concernant la modélisation. Dans ce projet vous devrez :
 
 - Créer et analyser plusieurs modèles non linéaire avec les fonctions
   self start et la fonction `nls()`
