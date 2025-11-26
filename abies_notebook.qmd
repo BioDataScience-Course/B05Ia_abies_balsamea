@@ -14,15 +14,15 @@ bibliography: bibliography/references.bib
 
 # Introduction et but
 
-@wood_2015 ont étudié la relation entre la hauteur et le diamètre de *Abies balsamea* (L.) Mill. 1768. Les mesures sont réalisées sur les pentes du mont Moosilauke (New Hampshire, USA) dont le point culminant est à 1464m. Outre le diamètre et la hauteur, cette étude intègre la hauteur de la canopée ainsi que l'altitude qui évolue de 808 m à 1180m.
+@wood_2015 ont étudié la relation entre la hauteur et le diamètre d'*Abies balsamea* (L.) Mill. 1768. Les mesures sont réalisées sur les pentes du mont Moosilauke (New Hampshire, USA) dont le point culminant est à 1464m. Outre le diamètre et la hauteur, cette étude intègre la hauteur de la canopée ainsi que l'altitude qui évolue de 808 m à 1180m.
 
 Notre objectif est de déterminer quel modèle non linéaire décrit le mieux la hauteur de *A. balsamea* en fonction de son diamètre.
 
 # Matériel et méthodes
 
-Les données collectées par Wood et son équipe [@wood_data_2016] sont disponibles sous licence [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr) depuis le site [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.r3645). Le protocole et les métadonnées sont expicités dans la publication correspondante [@wood_2015].
+Les données collectées par Wood et son équipe [@wood_data_2016] sont disponibles sous licence [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.fr) depuis le site [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.r3645). Le protocole et les métadonnées sont explicités dans la publication correspondante [@wood_2015].
 
-L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2024](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
+L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2025](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
 
 # Résultats
 
@@ -31,7 +31,10 @@ L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.v
 if (!"tools:tests" %in% search())
   source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
 
-# Configuration de l'environnement SciViews::R
+# Configure Knitr pour utiliser AGG comme périphérique graphique
+knitr::opts_chunk$set(dev = "ragg_png")
+
+# Configure l’environnement SciViews::R
 SciViews::R(___)
 ```
 
@@ -69,11 +72,11 @@ select_answer(r"-{
 [] -   Les distributions des diamètres et des hauteurs sont multimodales.
 
 [] -   Les hauteurs et diamètres se distribuent de manière symétrique.
-[] -   Les hauteurs et diamètres ont des distributions asymétiques qui s'étalent à gauche.
-[] -   Les hauteurs et diamètres ont des distributions asymétiques qui s'étalent à droite.
+[] -   Les hauteurs et diamètres ont des distributions asymétriques qui s'étalent à gauche.
+[] -   Les hauteurs et diamètres ont des distributions asymétriques qui s'étalent à droite.
 
 [] -   Le nuage de points est parfaitement linéaire.
-[] -   Le nuage de points est linéaire mais s'infléchi pour les valeurs élevées.
+[] -   Le nuage de points est linéaire, mais s'infléchit pour les valeurs élevées.
 [] -   Le nuage de points est sigmoïdal.
 [] -   Le nuage de points est curvilinéaire et asymptotique pour les grandes valeurs.
 [] -   Le nuage de points est curvilinéaire et non asymptotique pour les grandes valeurs.
@@ -94,7 +97,7 @@ ___
 ```{r plot3comment, output='asis'}
 select_answer(r"-{
 [] -   Le nuage de points en double-log est parfaitement linéaire.
-[] -   Le nuage de points en double-log est linéaire sauf pour les plus petits arbres.
+[] -   Le nuage de points en double-log est linéaire, sauf pour les plus petits arbres.
 [] -   Le nuage de points en double-log est sigmoïdal.
 [] -   Le nuage de points en double-log est curvilinéaire et asymptotique pour les grandes valeurs.
 [] -   Le nuage de points en double-log est curvilinéaire et non asymptotique pour les grandes valeurs.
@@ -115,7 +118,7 @@ ___
 ```{r plot4comment, output='asis'}
 select_answer(r"-{
 [] -   Le nuage de points du log de la hauteur en fonction du diamètre est parfaitement linéaire.
-[] -   Le nuage de points du log de la hauteur en fonction du diamètre est linéaire sauf pour les plus petits arbres.
+[] -   Le nuage de points du log de la hauteur en fonction du diamètre est linéaire, sauf pour les plus petits arbres.
 [] -   Le nuage de points du log de la hauteur en fonction du diamètre est sigmoïdal.
 [] -   Le nuage de points du log de la hauteur en fonction du diamètre est curvilinéaire et asymptotique pour les grandes valeurs.
 [] -   Le nuage de points du log de la hauteur en fonction du diamètre est curvilinéaire et non asymptotique pour les grandes valeurs.
@@ -125,7 +128,7 @@ select_answer(r"-{
 [] -   La variance reste très hétérogène.}-")
 ```
 
-Nous partirons de ces dernière données du logarithme de la hauteur en fonction du diamètre qui montre le meilleur nuage de point considérant que l'homoscédasticité est également souhaitable pour une régression non linéaire par les moindres carrés. Par facilité, nous calculons la variable `logheight` comme étant le logarithme népérien de `height`.
+Nous partirons de ces dernières données du logarithme de la hauteur en fonction du diamètre qui montre le meilleur nuage de point considérant que l'homoscédasticité est également souhaitable pour une régression non linéaire par les moindres carrés. Par facilité, nous calculons la variable `logheight` comme étant le logarithme népérien de `height`.
 
 ```{r logheight}
 abies$logheight <- labelise(log(abies$height), "log(hauteur)")
@@ -135,7 +138,7 @@ abies$logheight <- labelise(log(abies$height), "log(hauteur)")
 
 De part la forme du nuage de points, nous nous orientons vers un modèle asymptotique. Essayons un modèle de von Bertalanffy.
 
-<!--% Réalisez un modèle de von Bertalanffy de logheight en fonction de diameter. Calculez le résumé du modèle et formatez-le avec tabularise(). Tracez enfin le graphique du modèle ajusté dans les données. -->
+<!--% Réalisez un modèle de von Bertalanffy de logheight en fonction de diameter. Ne forcez pas le modèle à passer par 0. Calculez le résumé du modèle et formatez-le avec tabularise(). Tracez enfin le graphique du modèle ajusté dans les données. -->
 
 ```{r vb, record='ROP', object='vb', arg='call', warning=FALSE}
 vb <- ___
@@ -177,7 +180,7 @@ chart(___) +
 
 Nous utilisons le critère d'Akaike pour choisir ici le meilleur modèle.
 
-<!--- Comparez les trois modèles réalisé à l'aide du critère d'Akaike. -->
+<!--- Comparez les trois modèles réalisés à l'aide du critère d'Akaike. -->
 
 ```{r aic, record='RNDFS'}
 ___

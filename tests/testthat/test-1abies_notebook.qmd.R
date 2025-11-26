@@ -9,7 +9,7 @@ test_that("Le bloc-notes est-il compilé en un fichier final HTML ?", {
   # Vérifiez aussi que ce rendu se réalise sans erreur, sinon, lisez le message
   # qui s'affiche dans l'onglet 'Travaux' et corrigez ce qui ne va pas dans
   # votre document avant de réaliser à nouveau un rendu HTML.
-  # IL EST TRES IMPORTANT QUE VOTRE DOCUMENT COMPILE ! C'est tout de même le but
+  # IL EST TRÈS IMPORTANT QUE VOTRE DOCUMENT COMPILE ! C'est tout de même le but
   # de votre analyse que d'obtenir le document final HTML.
 
   expect_true(is_rendered_current("abies_notebook.qmd"))
@@ -84,11 +84,11 @@ test_that("Chunks 'import' : importation et filtre des données", {
 
   expect_true(is_identical_to_ref("import", "nrow"))
   # Le nombre de lignes dans le tableau `abies` est incorrect
-  # Le filtre sur les lignes n'est pas correcte. Rélisez la consigne pour 
+  # Le filtre sur les lignes n'est pas correct. Relisez la consigne pour 
   # appliquer le filtre souhaité sur l'altitude au quel les arbres sont mesurés.
 })
 
-test_that("Chunks 'plot1', 'plot2', 'plot2comment' : description graphiques des données", {
+test_that("Chunks 'plot1', 'plot2', 'plot2comment' : description graphique des données", {
   expect_true(is_identical_to_ref("plot1"))
   # Le graphique combiné de deux histogrammes par le chunk 'plot1' n'est pas 
   # celui attendu. Avez-vous utilisé un label en français pour l'axe Y des 
@@ -102,7 +102,7 @@ test_that("Chunks 'plot1', 'plot2', 'plot2comment' : description graphiques des 
   expect_true(is_identical_to_ref("plot2comment"))
   # L'interprétation de la description graphique des données est (partiellement) 
   # fausse dans le chunk 'plot2comment'
-  # Vous devez cochez les phrases qui décrivent les graphiques et la table d'un
+  # Vous devez cocher les phrases qui décrivent les graphiques et la table d'un
   # 'x' entre les crochets [] -> [x]. Ensuite, vous devez recompiler la version
   # HTML du bloc-notes (bouton 'Rendu') sans erreur pour réactualiser les
   # résultats.
@@ -137,7 +137,7 @@ test_that("Chunks 'plot4', 'plot4comment' : transformation log pour la hauteur s
   expect_true(is_identical_to_ref("plot4comment"))
   # L'interprétation de la description graphique des données est (partiellement) 
   # fausse dans le chunk 'plot3comment'
-  # Vous devez cochez les phrases qui décrivent les graphiques et la table d'un
+  # Vous devez cocher les phrases qui décrivent les graphiques et la table d'un
   # 'x' entre les crochets [] -> [x]. Ensuite, vous devez recompiler la version
   # HTML du bloc-notes (bouton 'Rendu') sans erreur pour réactualiser les
   # résultats.
@@ -165,7 +165,7 @@ test_that("Chunks 'vb', 'gompertz', 'weibull' & 'chartnls' : modèles non-linéa
   expect_true(is_identical_to_ref("chartnls"))
   # Le nuage de points produit par le chunk 'chartnls' n'est pas celui
   # attendu.
-  # Lisez bien la consigne et corrigez l'erreur. Assurez vous d'avoir 
+  # Lisez bien la consigne et corrigez l'erreur. Assurez-vous d'avoir 
   # des labels en français. Les trois modèles doivent être présents sur le 
   # même graphique. Le label pour la couleur doit être 'Modèles non linéaires'.
 })
@@ -182,7 +182,7 @@ test_that("Chunks 'aic', 'aiccomment', Comparaison des modèles", {
 
   expect_true(is_identical_to_ref("aiccomment"))
   # La comparaison des trois modèles est (partiellement) fausse
-  # Vous devez cochez les phrases qui décrivent le modèle d'un 'x' entre les
+  # Vous devez cocher les phrases qui décrivent le modèle d'un 'x' entre les
   # crochets [] -> [x]. Ensuite, vous devez recompiler la version HTML du
   # bloc-notes (bouton 'Rendu') sans erreur pour réactualiser les résultats.
   # Assurez-vous de bien comprendre ce qui est coché ou pas : vous n'aurez plus
@@ -193,7 +193,7 @@ test_that("Le code pour l'équation paramétrée du modèle du meilleur modèle 
   expect_true(rmd_select(abies, by_section("Modélisation")) |>
       as_document() |> is_display_param_equation("vb"))
   # Le code pour générer l'équation paramétrée du meilleur modèle est incorrect. 
-  # Vous avez appris à faire cela dans plusieurs projets dont le projet
+  # Vous avez appris à faire cela dans plusieurs projets, dont le projet
   # B04Ia_23M_lungcap. Vérifiez comment l'équation se présente dans le 
   # document final généré avec le bouton ('Rendu').
 })
