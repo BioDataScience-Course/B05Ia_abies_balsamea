@@ -1,5 +1,5 @@
 ---
-title: "Croissance du sapin *Abies balsamea* (L.) Mill., 1768"
+title: "SDD II module 5 : Croissance du sapin *Abies balsamea* (L.) Mill., 1768"
 output: github_document
 lang: "fr"
 bibliography: "bibliography/references.bib"

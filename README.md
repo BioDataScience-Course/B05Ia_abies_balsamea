@@ -1,10 +1,10 @@
-Croissance du sapin *Abies balsamea* (L.) Mill., 1768
+SDD II module 5 : Croissance du sapin *Abies balsamea* (L.) Mill., 1768
 ================
 
 <!-- DO NOT EDIT .md FILE-->
 
 Ce projet nécessite d’avoir assimilé l’ensemble des notions du cinquième
-modules du cours de science des données biologiques 2. Il correspond au
+module du cours de science des données biologiques 2. Il correspond au
 dépôt GitHub
 <https://github.com/BioDataScience-Course/B05Ia_abies_balsamea>. Il est
 distribué sous licence [CC BY-NC-SA
@@ -15,7 +15,7 @@ distribué sous licence [CC BY-NC-SA
 Ce projet est individuel et cadré. Il vise à compléter votre
 apprentissage concernant la modélisation. Dans ce projet vous devrez :
 
-- Créer et analyser plusieurs modèles non linéaire avec les objets
+- Créer et analyser plusieurs modèles non linéaires avec les objets
   **selfStart** et la fonction `nls()`
 
 - Choisir le modèle le plus pertinent
@@ -45,11 +45,18 @@ la fin que vos derniers commits ont bien été pushés sur GitHub.
 
 Wood et al. (2015) ont étudié la croissance de *Abies balsamea*. Ils ont
 mesuré la hauteur de ces arbres en fonction du diamètre de leur tronc à
-1.37m du sol. D’autres informations comme la hauteur du plus grand arbre
-proche dans un carré de 6m\*6m et l’altitude ont aussi été consignées,
-mais nous n’utiliserons pas ces informations complémentaires ici. Les
-données sont disponible via [DRYAD](https://doi.org/10.5061/dryad.r3645)
-(Wood et al. 2016).
+1.37m du sol. D’autres informations, comme la hauteur du plus grand
+arbre proche dans un carré de 6m\*6m et l’altitude ont aussi été
+consignés, mais nous n’utiliserons pas ces informations complémentaires
+ici. Les données sont disponibles via
+[DRYAD](https://doi.org/10.5061/dryad.r3645) (Wood et al. 2016).
+
+## Utilisation de l’IA
+
+Dans le cadre de votre travail, vous avez le droit d’être aidé par
+l’intelligence artificielle. Le chatbot SciViews est disponible dans
+votre RStudio sur Saturn Cloud via l’addin Help. Il répond aux questions
+concernant le langage R, les statistiques et la science des données.
 
 ## Bibliographie
 
